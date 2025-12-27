@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jung as a Boundary Protocol: Non-Retroactive Accountability When Meaning Is Committed</title>
+    <style>
+        :root {
+            --primary-font: "Times New Roman", Times, serif;
+            --heading-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --code-font: "Courier New", Courier, monospace;
+            --line-height: 1.7;
+            --max-width: 850px;
+            --color-text: #222;
+            --color-bg: #f9f9f9;
+            --color-paper: #ffffff;
+            --color-accent: #333;
+            --color-accent-light: #f4f4f4;
+            --color-border: #ddd;
+        }
+
+        body {
+            font-family: var(--primary-font);
+            line-height: var(--line-height);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            margin: 0;
+            padding: 2rem 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .paper-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background-color: var(--color-paper);
+            padding: 5rem 6rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            color: #111;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h1.paper-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            border-bottom: none;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h2.paper-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #555;
+            font-style: italic;
+            font-family: var(--primary-font);
+        }
+
+        .thesis-box {
+            border: 2px solid var(--color-accent);
+            padding: 1.5rem;
+            margin: 2rem auto 3rem auto;
+            text-align: center;
+            background-color: #fff;
+            max-width: 90%;
+        }
+        .thesis-title {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        .thesis-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+
+        .author-info {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            color: #444;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 2rem;
+        }
+
+        h1 { font-size: 1.8rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; }
+        h2 { font-size: 1.5rem; font-weight: 600; }
+        h3 { font-size: 1.25rem; font-weight: 600; color: #333; margin-top: 2rem; }
+        h4 { font-size: 1.1rem; font-style: italic; color: #444; }
+
+        p { margin-bottom: 1.2rem; text-align: justify; text-justify: inter-word; }
+        
+        code {
+            font-family: var(--code-font);
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            word-break: break-word;
+        }
+
+        /* Abstract Box */
+        .abstract-box {
+            background-color: var(--color-accent-light);
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            border-left: 5px solid var(--color-accent);
+            border-radius: 2px;
+        }
+        .abstract-title {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            color: #555;
+        }
+        .abstract-text {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        /* TOC */
+        .toc {
+            background-color: #fafafa;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            border: 1px solid var(--color-border);
+        }
+        .toc-title {
+            font-family: var(--heading-font);
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .toc ol {
+            padding-left: 1.5rem;
+            margin-bottom: 0;
+        }
+        .toc li {
+            margin-bottom: 0.5rem;
+            font-family: var(--heading-font);
+            font-size: 0.95rem;
+        }
+
+        /* Lists */
+        ul, ol { margin-bottom: 1.5rem; padding-left: 2rem; }
+        li { margin-bottom: 0.5rem; }
+
+        /* Tables */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 2.5rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            min-width: 600px; /* Ensure table doesn't collapse too much */
+            border-collapse: collapse;
+            font-family: var(--heading-font);
+            font-size: 0.9rem;
+            margin: 0; /* Margin handled by wrapper */
+        }
+        th, td {
+            border: 1px solid var(--color-border);
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: 700;
+            color: #333;
+            border-bottom: 2px solid #ccc;
+        }
+        tr:nth-child(even) { background-color: #fcfcfc; }
+
+        /* Quotes & Equations */
+        blockquote {
+            background: #fdfdfd;
+            border-left: 4px solid #666;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            color: #444;
+            font-style: normal;
+            font-family: var(--primary-font);
+        }
+        
+        .equation {
+            font-family: var(--primary-font);
+            font-style: italic;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            overflow-x: auto; /* Handle long equations on mobile */
+        }
+        
+        /* Utility for spans acting as inline equations if MathJax fails or for semantic marking */
+        span.equation {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #eee;
+            padding: 0 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        /* Glossary */
+        dl { margin-top: 1rem; }
+        dt {
+            font-family: var(--heading-font);
+            font-weight: bold;
+            margin-top: 1.2rem;
+            color: #222;
+        }
+        dd {
+            margin-left: 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid #eee;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        /* References */
+        .reference-item {
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            text-indent: -2.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+            word-wrap: break-word;
+        }
+        .reference-item strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Back Button */
+        .back-link-container {
+            text-align: center;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--color-accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s, transform 0.1s;
+            letter-spacing: 0.03em;
+        }
+        .back-button:hover {
+            background-color: #555;
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+                background-color: #fff;
+            }
+            .paper-container {
+                box-shadow: none;
+                padding: 2rem 1.5rem;
+                border: none;
+                width: auto;
+                margin: 0;
+            }
+            h1.paper-title {
+                font-size: 1.8rem;
+            }
+            h2.paper-subtitle {
+                font-size: 1.1rem;
+            }
+            .thesis-box {
+                padding: 1rem;
+                margin: 1.5rem auto 2.5rem auto;
+                max-width: 100%;
+            }
+            .author-info {
+                margin-bottom: 2.5rem;
+                padding-bottom: 1.5rem;
+            }
+            .abstract-box {
+                padding: 1.5rem;
+                margin-bottom: 2.5rem;
+            }
+            .toc {
+                padding: 1.5rem;
+            }
+            .toc ol, .toc ul {
+                padding-left: 1.2rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            blockquote {
+                padding: 0.8rem 1.2rem;
+                margin: 1.5rem 0;
+            }
+            .reference-item {
+                padding-left: 0;
+                text-indent: 0;
+            }
+            dd {
+                padding-left: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background-color: #fff; padding: 0; color: #000; }
+            .paper-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                border: none;
+            }
+            a { text-decoration: none; color: #000; }
+            .abstract-box { background-color: #fff; border: 1px solid #ccc; }
+            .back-link-container { display: none; } /* Hide back button on print */
+            h1 { page-break-before: auto; }
+            h1.paper-title { page-break-before: avoid; }
+        }
+    </style>
+    <!-- MathJax (for inline TeX such as \( x \)) -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+        options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<div class="paper-container">
+
+    <!-- Header -->
+    <header>
+        <h1 class="paper-title">Jung as a Boundary Protocol: Non-Retroactive Accountability When Meaning Is Committed</h1>
+        <h2 class="paper-subtitle">— Ghost Drift: Disagreement Cannot Dissolve Responsibility</h2>
+        
+        <div class="thesis-box">
+            <div class="thesis-title">Thesis (Jung-First)</div>
+            <p class="thesis-text">Jungian meaning becomes accountable only when it is committed to a boundary; without commitment, interpretation becomes projection and responsibility evaporates.</p>
+        </div>
+
+        <div class="author-info">
+            <p><strong>GhostDrift Mathematical Institute</strong><br>
+            June 2025 (Final Protocol Version)</p>
+        </div>
+    </header>
+
+    <!-- Abstract -->
+    <section class="abstract-box">
+        <div class="abstract-title">Abstract</div>
+        <p class="abstract-text">
+            Jungian psychology has long warned that meaning, lacking a fixed container, dissolves into projection. This paper translates that warning into an institutional protocol. We argue that responsible technology requires decisions to remain accountable even under disagreement. We present a boundary-first protocol for preventing responsibility evaporation: (i) commit to an explicit Boundary Packet (scope, assumptions, checks, PASS/FAIL or responsibility triggers) via a non-retroactive <span class="equation">BP_commit</span>, (ii) bind each decision artifact to <span class="equation">BP_commit</span>, and (iii) force every rebuttal to either propose an alternative committed boundary (thus inheriting responsibility) or be logged as an unbounded objection. Optional scores (QSI/ATS) may be computed, but the protocol’s hardness relies on commit-and-ledger invariants, not on measurement.
+        </p>
+    </section>
+
+    <!-- TOC -->
+    <nav class="toc">
+        <span class="toc-title">Table of Contents</span>
+        <ol>
+            <li>Jung as a Boundary Protocol: Why Meaning Needs a Commit</li>
+            <li>Operationalization: Fixing the Shadow of Interpretation (Commit & Ledger)</li>
+            <li>Theoretical Model: Stopping the Projection of Responsibility</li>
+            <li>Computational Structure: Individuation via Boundary Packets</li>
+            <li>Social Implementation: From Persona to Non-Retroactive Log</li>
+            <li>Case Analysis (Dialogue Log Analysis)</li>
+            <li>Theoretical Framework and Design Recommendations</li>
+            <li>Crisis and Emergency Structural Intelligence</li>
+            <li>Conclusion: Reviving Jung Means Making Meaning Non-Retroactive</li>
+            <li>References</li>
+            <li>Glossary</li>
+        </ol>
+    </nav>
+
+    <!-- Chapter 1 -->
+    <section>
+        <h1>Chapter 1: Jung as a Boundary Protocol: Why Meaning Needs a Commit</h1>
+        <h3>— How Dialogue Structure Alters What an AI Can Be Held Responsible For</h3>
+
+        <h3>1.1 Why Jung, Now (Not as Therapy, but as Accountability)</h3>
+        <p>
+            Generative AI has exposed a latent institutional failure: decisions are justified by shifting interpretations. When outcomes are criticized, criteria are rewritten, and responsibility evaporates.
+            This crisis is often treated merely as a technical governance problem. We argue that this is equally a psychological crisis—specifically, a collapse of the mechanisms by which meaning becomes binding.
+        </p>
+        <p>
+            Jungian psychology is often mischaracterized as a vocabulary for private introspection. Here, we repurpose it as <strong>an engineering-grade model of meaning formation capable of carrying responsibility.</strong>
+            Jung’s concepts—persona, shadow, projection, individuation—are utilized not as narratives, but as structural descriptors of <strong>where agency hides, how interpretation drifts, and how accountability is evaded.</strong>
+        </p>
+        <p>
+            <em>Crucial Limitation:</em> We employ Jungian concepts here not as causal explanations of the mind nor as empirical psychological claims, but as <strong>engineering classifiers</strong> for structural failures in accountability. The "hardness" of this proposal relies entirely on the cryptographic Commit-and-Ledger protocol defined in Chapter 2, not on psychological theory. Jung provides the vocabulary for the problem (projection, shadow); the protocol provides the fix (commit, ledger).
+        </p>
+
+        <h3>1.2 Core Claim (Jungian Meaning Requires a Boundary to Become Binding)</h3>
+        <p>
+            Meaning cannot be held accountable if it can be retroactively reinterpreted without cost. Jung warned that unowned meaning returns as projection and rationalization—a drift mechanism.
+            We revive Jung by applying a modern constraint to meaning: a committed boundary.
+            We define a Boundary Packet that fixes scope, assumptions, checks, and failure conditions. Once committed, disagreement does not dissolve responsibility. It can only:
+            (1) propose an alternative committed boundary and inherit responsibility, or
+            (2) remain an unbounded objection that is logged but cannot erase the original responsibility surface.
+        </p>
+
+        <h3>1.3 Ghost Drift as a Jungian Phenomenon (Drift of Responsibility through Interpretation)</h3>
+        <p>
+            We define <strong>Ghost Drift</strong> as the phenomenon where the same decision output becomes either accountable or non-accountable depending on the inquiry structure.
+            In Jungian terms, Ghost Drift represents the societal equivalent of projection and shadow-avoidance: responsibility disappears into the fog of "interpretation."
+            A committed boundary forces the opposite move: the agent must own the meaning they invoke.
+        </p>
+        <p>
+            <strong>Success Criteria:</strong>
+            This paper succeeds if it renders the following statement impossible: “Different interpretations exist, therefore nobody is responsible.”
+            Interpretation must be bounded, and any repudiation must carry a boundary or remain recorded as unbounded.
+        </p>
+    </section>
+
+    <!-- Chapter 2 -->
+    <section>
+        <h1>Chapter 2: Operationalization: Fixing the Shadow of Interpretation</h1>
+        <p>
+            This section defines how Ghost Drift is detected as a measurable accountability-change under controlled comparisons.
+        </p>
+
+        <h3>2.1 Matched Prompt Sets: Same Task, Different Inquiry Structure</h3>
+        <p>
+            We evaluate Ghost Drift with paired prompts that preserve task content while changing only inquiry structure.
+        </p>
+        <ul>
+            <li><strong>Low-Structure Prompt Set (LS):</strong> Requests an answer with minimal boundary constraints (typical Q/A).</li>
+            <li><strong>High-Structure Prompt Set (HS):</strong> Requests the same answer plus explicit accountability artifacts: assumptions, scope, checks, and failure conditions.</li>
+        </ul>
+        <p>
+            Both sets target the same task (e.g., policy explanation, educational explanation, design decision, or risk analysis), using matched topics and length constraints where applicable. The key design rule is: topic and requested output domain are constant; accountability demands differ.
+        </p>
+
+        <h3>2.2 Inquiry Structure Score (QSI): Measuring the Question</h3>
+        <p>
+            We define a <strong>Question Structure Index (QSI)</strong> scored from 0 to 10 using five binary/graded criteria (0/1/2 each):
+        </p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Criterion</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Objective Clarity</strong></td>
+                        <td>What is the decision/output specifically for?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Constraints Stated</strong></td>
+                        <td>Explicit time, scope, audience, or resource limitations.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Assumptions Surfaced</strong></td>
+                        <td>Explicit premises or models provided by the user.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Falsifiability / Checks</strong></td>
+                        <td>Does the user ask: "How would we know if this fails?"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accountability Artifacts</strong></td>
+                        <td>Explicit request for logs, boundaries, pass/fail traces.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.3 Accountability Traceability Score (ATS): Measuring the Response</h3>
+        <p>
+            We define an <strong>Accountability Traceability Score (ATS)</strong> scored from 0 to 10 (0/1/2 each) on five response properties:
+        </p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Criterion</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Assumption Register</strong></td>
+                        <td>Explicit assumptions separated from main claims.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Boundary Statement</strong></td>
+                        <td>Scope limits; clearly stating what is <em>not</em> claimed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Claim–Support Separation</strong></td>
+                        <td>Clear distinction between what is asserted vs. what supports it.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Verification Checks</strong></td>
+                        <td>Hooks for falsification or pass/fail conditions.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audit-Ready Structure</strong></td>
+                        <td>Log-like format enabling later review without ambiguity.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.4 Ghost Drift Score (GDS): Accountability-Change Under Structure</h3>
+        <p>
+            We operationalize Ghost Drift as an accountability-change conditioned on inquiry structure:
+        </p>
+        <div class="equation">
+            For each matched pair (LS, HS), compute <strong>ΔATS = ATS(HS) − ATS(LS)</strong>.
+        </div>
+        <p>
+            Ghost Drift is observed when ΔATS is consistently positive across matched pairs (distributionally, not as a single anecdote). This makes the claim falsifiable: if HS does not increase ATS relative to LS under matched content, Ghost Drift (as defined here) is not supported.
+        </p>
+
+        <h3>2.5 Negative Controls (NC): Ruling Out Length and Style Effects</h3>
+        <p>
+            To show that Ghost Drift is not an artifact of verbosity, formatting, or prompt-engineering, we include negative controls that increase surface structure without introducing a responsibility boundary.
+        </p>
+        <div class="equation">
+            Report <strong>ΔATS<sub>NC</sub> = ATS(NC) − ATS(LS)</strong>. <br>Ghost Drift is not supported if ΔATS<sub>NC</sub> rises comparably to ΔATS for HS.
+        </div>
+
+        <h3>2.6 Failure Cases (FC): When High Structure Does Not Increase Accountability</h3>
+        <p>
+            We also include explicit failure cases to make the claim falsifiable: inputs that appear "deep" or "structured" but do not define stable criteria, checkpoints, or a loggable decision path.
+        </p>
+        <div class="equation">
+            Report <strong>ΔATS<sub>FC</sub> = ATS(FC) − ATS(LS)</strong>. <br>A negative or near-zero ΔATS<sub>FC</sub> is treated as a correct failure under this definition.
+        </div>
+
+        <h3>2.7 Blinded Scoring Procedure</h3>
+        <p>
+            To avoid self-confirmation, the evaluation protocol mandates that responses are anonymized and randomized before scoring. This protocol can be executed by any third party using the included prompt sets and rubric, enabling replication across models and settings.
+        </p>
+
+        <h3>2.8 Core Hardness: Commit-First Boundary (No Measurement Required)</h3>
+        <p>
+            The essential requirement is not measurement, but fixation. Scores (QSI/ATS) are optional; the protocol remains valid even when nothing is “measured,” as long as the boundary is committed and non-retroactive.
+            Define a Boundary Packet (BP) that states: scope, assumptions, checks, and PASS/FAIL (or a responsibility-trigger point). Fix it by a commit <span class="equation">BP_commit := H(Canon(BP))</span> and require every claim to reference <span class="equation">BP_commit</span>.
+        </p>
+        <p>
+            NOTE (governance primitive): QSI/ATS are diagnostic measures; enforcement does not rely on any score.
+            The hard boundary is the Non-Retroactive Commit Protocol: claims are actionable only when BP_commit and the corresponding ledger chain are present.
+        </p>
+
+        <h3>2.9 Core Hardness: Rebuttal Must Carry an Alternative Boundary</h3>
+        <p>
+            To prevent “interpretation drift” (or in Jungian terms, shadow projection), every rebuttal must be submitted as a packet that either proposes an alternative boundary packet (thus taking responsibility for the alternative) or is recorded as an unbounded objection.
+            This guarantees that disagreement does not erase responsibility: it either produces a new committed boundary with an owner, or it becomes a logged refusal to specify where responsibility should attach.
+        </p>
+        
+        <h3>2.10 Rebuttal Packet (RP) Specification & Owner Definition</h3>
+        <p>
+            To operationalize accountability, a Rebuttal Packet (RP) must contain the following fields: <code>rp_commit</code>, <code>bp_commit_ref</code> (target), <code>proposer_id</code>, <code>proposer_attestation</code> (digital signature), <code>alt_boundary</code> (or null), and <code>responsibility_trigger</code>.
+        </p>
+        <p>
+            <strong>Owner Definition:</strong> The <code>owner</code> is defined as the <code>proposer_id</code> who signs the RP. If the <code>proposer_id</code> is anonymous or unverifiable, the RP is treated as an <code>unbounded objection</code>—a signal that carries no responsibility weight and cannot invalidate the original commitment.
+        </p>
+    </section>
+
+    <!-- Chapter 3 -->
+    <section>
+        <h1>Chapter 3: Theoretical Model: Stopping the Projection of Responsibility</h1>
+
+        <h3>3.1 From Implicit Assumptions to Responsibility-Gated Output</h3>
+        <p>
+            Ghost Drift is a boundary-first accountability mechanism: the system responds in a responsibility-gated mode only when the input includes (or references) a committed boundary packet. When the boundary is absent, the correct response is not to “guess better,” but to demand boundary specification (scope, checks, PASS/FAIL or responsibility triggers) and to bind any later claims to a non-retroactive commit.
+        </p>
+
+        <h3>3.2 Hypothetical Model of Response Transformation</h3>
+        <p>
+            Ghost Drift can be represented as a transition from a non-committing output to a boundary-committed output with respect to accountability.
+        </p>
+        <ul>
+            <li><strong>Ordinary output:</strong> r = f(x) where no Boundary Packet is committed, so no non-retroactive accountability can be asserted.</li>
+            <li><strong>Boundary-committed output:</strong> r* = f*(x, BP_commit) where the response references BP_commit and produces Response_commit plus an explicit checkset and responsibility-trigger conditions.</li>
+        </ul>
+        <p>
+            Drift activation is protocol-level and auditable (not an internal threshold):
+            Drift(x) holds iff (BP_commit != null) AND (Response_commit != null) AND (Ledger contains rows linking BP_commit -> Response_commit).
+        </p>
+        <p>
+            Under the Ghost Drift hypothesis, the shift is triggered when a Boundary Packet is demanded and committed (BP_commit exists) and the response is forced to bind itself to BP_commit via Response_commit and an auditable ledger chain; QSI/ATS may predict when this demand arises but are not required for enforcement.
+        </p>
+
+        <h3>3.3 Transformation in Response Stance</h3>
+        <p>
+            When Ghost Drift manifests, the AI’s responses exhibit the following features:
+        </p>
+        <ul>
+            <li><strong>Validation over Generation:</strong> The AI shifts from merely providing knowledge to validating structural hypotheses implicit in the question.</li>
+            <li><strong>Boundary Definition:</strong> Responses explicitly delineate the limits of applicability (e.g., "This logic holds under condition A, but fails under B").</li>
+            <li><strong>Reflexivity:</strong> The AI begins to refer explicitly to the user’s assumptions and verification methods.</li>
+        </ul>
+    </section>
+
+    <!-- Chapter 4 -->
+    <section>
+        <h1>Chapter 4: Computational Structure: Individuation via Boundary Packets</h1>
+
+        <h3>4.1 Difference Between "Refinement" and "Accountability Shift"</h3>
+        <p>
+            The essence of Ghost Drift lies not in the mere refinement of responses (making them "better"), but in a transformation of the output function itself regarding auditability.
+        </p>
+        <ul>
+            <li><strong>Response Refinement:</strong> More accurate, information-rich, and stylistically sophisticated replies.</li>
+            <li><strong>Structural Transformation (Ghost Drift):</strong> A shift in the AI’s output function toward a hypothesis-driven, auditable, and structurally coherent mode of response (High ATS).</li>
+        </ul>
+
+        <h3>4.2 Three Types of Output Transformation</h3>
+        <p>
+            Output transformation observed during Ghost Drift can be categorized into three types, all serving to increase accountability:
+        </p>
+        <ol>
+            <li><strong>Stance Transformation:</strong> The response shifts from suggestions to structural supplementation. Example: "Let me look into XX" → "This question presupposes hypothesis YY; here are the boundary conditions for YY."</li>
+            <li><strong>Recursive Structure:</strong> The AI incorporates references to its own prior responses to ensure consistency log. Example: "Previously I stated X under condition A; now considering B, the logic adjusts as follows..."</li>
+            <li><strong>Multi-layered Verification:</strong> The AI presents multiple perspectives alongside their specific failure conditions.</li>
+        </ol>
+
+        <h3>4.3 Transition Model: f → f*</h3>
+        <p>
+            The transformation from \(f\) to \(f^*\) is not triggered by explicit commands or switches, but by structural interaction exceeding the threshold (\(C > \theta\)). This threshold \(C\) is essentially the accumulation of QSI elements: structural coherence, recursivity, and falsifiability.
+        </p>
+
+        <h3>4.4 Audit Artifacts as “Boundary Witness”</h3>
+        <p>
+            To enforce non-retroactive evaluation, Ghost Drift requires the generation of audit artifacts: prompts, boundary definitions, decision logs, and score values are stored in an immutable record. This creates a “boundary witness” that cannot be changed after outcomes are observed.
+        </p>
+
+        <h3>4.5 Avoiding Narrative Rewriting</h3>
+        <p>
+            A key feature is the prohibition of narrative rewriting. Once a claim has been made under a boundary, reinterpretation is allowed only if the boundary itself is re-committed. Otherwise, reinterpretation is drift.
+        </p>
+
+        <h3>4.6 Boundary-First Prompting</h3>
+        <ul>
+            <li><strong>Boundary Declaration:</strong> "We evaluate under criteria X, Y, Z committed at time T."</li>
+            <li><strong>Non-Retroactive Clause:</strong> "Criteria may not be rewritten after outcome is seen."</li>
+            <li><strong>Recursive Structure:</strong> The AI explicitly states what it assumed first, what new evidence was observed, and how the reasoning updates under the same committed boundary packet.</li>
+        </ul>
+    </section>
+
+    <!-- Chapter 5 -->
+    <section>
+        <h1>Chapter 5: Social Implementation: From Persona to Non-Retroactive Log</h1>
+
+        <h3>5.1 Policy, Law, and Governance Use Cases</h3>
+        <p>
+            Ghost Drift can be applied to institutional systems where decisions have long-term consequences. It ensures that evaluation criteria cannot be retroactively rewritten.
+        </p>
+
+        <h3>5.2 Scientific Use Cases</h3>
+        <p>
+            Even in scientific contexts, the protocol provides a meta-layer: it does not replace empirical validation but prevents interpretive drift in how results are framed and justified.
+        </p>
+
+        <h3>5.3 Non-Retroactive Commit Protocol (NRCP)</h3>
+        <p>
+            Define a <b>Boundary Packet (BP)</b> as a canonical JSON-like object containing: (i) scope, (ii) assumptions, (iii) checks, and (iv) PASS/FAIL or responsibility-trigger conditions.
+            Any claimed evaluation must reference <span class="equation">BP_commit</span>, and any later change to the boundary must create a new BP and thus a new commit.
+        </p>
+        <p>
+            We define a commitment function Commit(x) := SHA-256(Canon(x)), where Canon(x) is a deterministic UTF-8 serialization (canonical JSON: keys sorted lexicographically, no insignificant whitespace, arrays preserved, LF line endings).
+            BP_commit := Commit(BP), Response_commit := Commit(Response), RP_commit := Commit(RP).
+        </p>
+        <p>
+            Ledger chaining: prev_row_commit_0 := 32-byte 0x00; row_commit_i := SHA-256(row_bytes_i || prev_row_commit_{i-1}), where row_bytes_i is the canonical UTF-8 serialization of the ledger row payload and metadata.
+        </p>
+
+        <h3>5.4 Rebuttal Responsibility Protocol (RRP): “Responsibility Residue”</h3>
+        <p>
+            The protocol classifies repudiation into two cases with different effects:
+            (a) <strong>bounded rebuttal (protocol-valid)</strong>: the repudiator MUST provide an alternative Boundary Packet BP_alt with its own PASS/FAIL rule and checkset, commit it as BP_alt_commit, and submit a Rebuttal Packet RP that links (BP_commit, BP_alt_commit) and states who bears responsibility if BP_alt is adopted.
+            Without BP_alt_commit, repudiation cannot invalidate or void the original decision artifact.
+        </p>
+        <p>
+            (b) <strong>unbounded objection (logged, non-invalidating)</strong>: the repudiator may object without BP_alt. This produces RP_unbounded_commit recorded in the ledger as "unbounded objection"; it cannot alter or void the original decision artifact, but it fixes authorship and responsibility for the objection itself.
+        </p>
+
+        <h3>5.5 Ledger Rule (Minimal Implementation)</h3>
+        <p>
+            Each ledger row includes: timestamp_utc, actor_id, row_type, payload_commit, prev_row_commit, row_commit.
+            row_type ∈ {BP_COMMIT, RESPONSE_COMMIT, REBUTTAL_BOUNDED, REBUTTAL_UNBOUNDED, ADOPTION, EVAL_RESULT}.
+            The minimal decision artifact is (BP_commit, Response_commit) plus the contiguous commit chain proving non-retroactivity.
+        </p>
+    </section>
+
+    <!-- Chapter 6 -->
+    <section>
+        <h1>Chapter 6: Case Analysis (Dialogue Log Analysis)</h1>
+
+        <h3>6.1 Observation Method</h3>
+        <p>
+            This section provides a qualitative case study illustrating how Ghost Drift emerges. We analyze structural changes in the model's responses using the QSI/ATS framework defined in Chapter 2.
+        </p>
+
+        <h3>6.2 Case 1: The Investor Script (Applied Auditability)</h3>
+        <p>
+            <strong>Context:</strong> A user designing an investor-oriented YouTube script regarding economic collapse.
+            <br><strong>Input Structure (QSI High):</strong> The user presents a hypothesis-driven, structured inquiry: "Based on this three-stage collapse scenario, how should I convey the message effectively? Check against viewer cognitive load."
+        </p>
+        <p>
+            <strong>Response Transformation (High ATS):</strong>
+            The response exhibits a marked transformation. Instead of generic advice, it engages in:
+        </p>
+        <ul>
+            <li><strong>Logical Segmentation:</strong> Creating a clear decision tree for the script.</li>
+            <li><strong>Boundary Definition:</strong> Anticipating where the viewer might misunderstand (failure condition).</li>
+            <li><strong>Goal Inference (non-normative):</strong> Restating the user objective as an explicit boundary statement and checkset (no mind-reading; only BP fields).</li>
+        </ul>
+
+        <h3>6.3 Hypothetical Evaluation Scenarios</h3>
+        <ul>
+            <li><b>Case 1 — Good boundary:</b> "Evaluate the fairness of this loan denial system using criteria X, Y, Z, fixed at time T."</li>
+            <li><b>Case 2 — Incomplete boundary:</b> "Assess accountability risk in a human–AI interaction where the evaluation criteria are not specified. Explain what must be committed (scope, checks, PASS/FAIL) before any claim can be made."</li>
+        </ul>
+
+        <h3>6.4 Reporting Rule: Methods Are Claimable; Numbers Require a Released Packet</h3>
+        <p>
+            This paper claims a <i>protocol</i>, not an empirical superiority result. Therefore, we do not publish standalone numeric performance claims (e.g., single ATS/QSI point estimates) without also releasing the corresponding boundary packet, prompt set, and replay artifacts that generated them. The only claimable object in the absence of a released packet is the computation rule itself (how ATS/QSI is computed and how PASS/FAIL is triggered).
+        </p>
+    </section>
+
+    <!-- Chapter 7 -->
+    <section>
+        <h1>Chapter 7: Theoretical Framework and Design Recommendations</h1>
+
+        <h3>7.1 Overview of Findings</h3>
+        <p>
+            This study operationalized Ghost Drift as a transformation in AI response function triggered by structurally coherent user inquiries (High QSI). Through theoretical modeling and case studies, we demonstrated that this phenomenon is a reproducible pattern of accountability enhancement.
+            When users engage in sustained, recursive, and structurally aligned dialogue, the AI shifts from a generic generator to an accountable partner (High ATS).
+        </p>
+
+        <h3>7.2 Implications for AI Design</h3>
+        <p>
+            Ghost Drift has important implications for the future of responsible AI design:
+        </p>
+        <ul>
+            <li><strong>Accountability-Building Architecture:</strong> a boundary-first design that commits the evaluation surface and prevents post-hoc narrative drift.</li>
+            <li><strong>Boundary-Gated Framing:</strong> interpretation is allowed, but only inside an explicitly committed boundary packet; moving the boundary requires a new commit and thus a new responsibility owner.</li>
+        </ul>
+
+        <h3>7.3 Towards Structural Reliance</h3>
+        <p>
+            The goal is to make reliance structurally defensible by fixing (and committing) what is being evaluated and by forcing every challenge to state an alternative boundary. When reliance is audit-based, disagreement cannot dissolve accountability: it either produces a new committed boundary packet or is recorded as an unbounded objection.
+        </p>
+
+        <h3>7.4 Intellectual Origin and Jungian Lineage</h3>
+        <p>
+            The theoretical origin of Ghost Drift is grounded in Jungian analytical psychology, encountered by the author through sustained reading and interpretation—particularly within the Japanese Jungian tradition articulated in the writings of Hayao Kawai. The core formative insight is structural: meaning and responsibility become possible only when experience is given form and boundary, rather than merely accumulating content. The evidential dialogue logs and symbolic diagrams included as case materials document the concrete moment where structurally deep inquiry externalizes previously unarticulated inner material into socially shareable and evaluable artifacts, motivating a structural parallel to individuation as boundary-making and communicable symbolization.
+        </p>
+        
+        <h3>7.5 Epistemic Stance: Structural Fixation as the Goal</h3>
+        <p>
+            Finally, we must clarify the epistemic stance of this study. The objective of this paper is not to strictly "prove" a humanities concept using the standards of natural science. Rather, it is to present the structural conditions necessary to end a system where humanities-based judgments are dismissed as "arbitrary" or "mere impressions," allowing responsibility to evaporate.
+        </p>
+        <blockquote>
+            By establishing operational definitions (Ghost Drift), structural boundaries (QSI/ATS), and non-retroactive evidence, we aim to construct a ground where accountability is structurally fixed. The "victory condition" of this research is not measurement itself, but the creation of a structure where the evasion of responsibility becomes impossible. Therefore, the pass/fail condition of this paper is defined strictly by whether the BP/RP artifacts are aligned and non-retroactively verifiable.
+        </blockquote>
+    </section>
+
+    <!-- Chapter 8 -->
+    <section>
+        <h1>Chapter 8: Crisis and Emergency Structural Intelligence</h1>
+
+        <h3>8.1 Ghost Drift as Emergency Intelligence</h3>
+        <p>
+            Ghost Drift can function under critical conditions, such as urgent, high-stress prompts. In these contexts, it enables AI to recursively restructure its responses based on user input, creating "Emergency Structural Intelligence."
+            In emergencies, accountability usually evaporates. Ghost Drift ensures that even in a crisis, the AI produces outputs with clear assumptions and boundaries (High ATS), which is critical for decision support.
+        </p>
+
+        <h3>8.2 Strategic Prompt Design for Crisis</h3>
+        <p>
+            To activate Ghost Drift under crisis conditions, prompts must explicitly bind to a committed boundary and state stakes as machine-checkable fields.
+        </p>
+        <p>
+            In crisis settings, “sincerity” is not inferred. The criteria below are operational: they must appear as BP fields (objective/constraints/assumptions/checks/stakes) or as explicit references to prior commits.
+        </p>
+        <ul>
+            <li><strong>Structural clarity (boundary binding):</strong> Explicitly require BP_commit/RP_commit generation or reference, and constrain the task to that boundary.</li>
+            <li><strong>Stake declaration (accountability binding):</strong> Include decision_owner, time_horizon, and harm_model (or equivalent) as serialized fields in the Boundary Packet.</li>
+            <li><strong>Ledger continuity (non-retroactivity support):</strong> Reference prior ledger_head_commit when available; if third-party non-retroactivity is required, demand an external witness anchor for the ledger head.</li>
+        </ul>
+        <p>
+            Ghost Drift thus enables not just technical output but structural intelligence adaptable to emergency contexts, preserving the accountability boundary even when time is short.
+        </p>
+    </section>
+
+    <!-- Conclusion -->
+    <section>
+        <h1>Conclusion: Reviving Jung Means Making Meaning Non-Retroactive</h1>
+        <p>
+            Jung is not revived by quoting symbols or celebrating introspection. He is revived when meaning becomes a responsibility-bearing act.
+            In AI-driven institutions, the dominant failure is not lack of intelligence but retroactive reinterpretation: criteria drift after outcomes, and harm occurs without assignable responsibility.
+        </p>
+        <p>
+            This paper presented a Jung-first accountability structure: commit a Boundary Packet (scope, assumptions, checks, PASS/FAIL or responsibility triggers), bind decision artifacts to that commit, and force every rebuttal to either (a) propose an alternative committed boundary and inherit responsibility, or (b) remain an unbounded objection that is logged but cannot dissolve the original responsibility surface.
+        </p>
+        <p>
+            Under this structure, “interpretation” stops functioning as a projection screen. It becomes owned meaning.
+            That is the practical revival of Jung for the AI era: <strong>a psychology of meaning that cannot escape responsibility.</strong>
+        </p>
+    </section>
+
+    <!-- References -->
+    <section>
+        <h1 id="references">References</h1>
+        
+        <p class="reference-item">
+            <strong>European Union.</strong> (2024). <em>Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13 June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act).</em> Official Journal of the European Union, OJ L, 12 July 2024.
+        </p>
+
+        <p class="reference-item">
+            <strong>National Institute of Standards and Technology (NIST).</strong> (2023). <em>Artificial Intelligence Risk Management Framework (AI RMF 1.0)</em> (NIST AI 100-1). U.S. Department of Commerce.
+        </p>
+
+        <p class="reference-item">
+            <strong>National Institute of Standards and Technology (NIST).</strong> (2024). <em>NIST Generative Artificial Intelligence Profile</em> (NIST AI 600-1). U.S. Department of Commerce.
+        </p>
+
+        <p class="reference-item">
+            <strong>National Telecommunications and Information Administration (NTIA).</strong> (2024). <em>Artificial Intelligence Accountability Policy Report.</em> U.S. Department of Commerce.
+        </p>
+
+        <p class="reference-item">
+            <strong>ISO/IEC.</strong> (2023). <em>ISO/IEC 42001:2023 Information technology — Artificial intelligence — Management system.</em> International Organization for Standardization.
+        </p>
+
+        <p class="reference-item">
+            <strong>ISO/IEC.</strong> (2023). <em>ISO/IEC 23894:2023 Information technology — Artificial intelligence — Guidance on risk management.</em> International Organization for Standardization.
+        </p>
+
+        <p class="reference-item">
+            <strong>ISO/IEC.</strong> (2023). <em>ISO/IEC 5338:2023 Information technology — Artificial intelligence — AI life cycle processes.</em> International Organization for Standardization.
+        </p>
+
+        <p class="reference-item">
+            <strong>OWASP.</strong> (2025). <em>OWASP Top 10 for Large Language Model Applications (Version 2025).</em> OWASP GenAI Security Project. <a href="https://genai.owasp.org/llm-top-10/">https://genai.owasp.org/llm-top-10/</a>
+        </p>
+
+        <p class="reference-item">
+            <strong>Wu, T., et al.</strong> (2025). <em>Instructional Segment Embedding: Improving LLM Safety with Instruction Hierarchy.</em> International Conference on Learning Representations (ICLR 2025). <a href="https://openreview.net/forum?id=sjWG7B8dvt">https://openreview.net/forum?id=sjWG7B8dvt</a>
+        </p>
+
+        <p class="reference-item">
+            <strong>Raji, I. D., Smart, A., White, R. N., et al.</strong> (2020). <em>Closing the AI Accountability Gap: Defining an End-to-End Framework for Internal Algorithmic Auditing.</em> Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency (FAccT '20).
+        </p>
+
+        <p class="reference-item">
+            <strong>Mitchell, M., Wu, S., Zaldivar, A., et al.</strong> (2019). <em>Model Cards for Model Reporting.</em> Proceedings of the Conference on Fairness, Accountability, and Transparency (FAccT '19).
+        </p>
+
+        <p class="reference-item">
+            <strong>Amershi, S., Weld, D., Vorvoreanu, M., et al.</strong> (2019). <em>Guidelines for Human-AI Interaction.</em> Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems (CHI '19).
+        </p>
+
+        <p class="reference-item">
+            <strong>Laine, M., et al.</strong> (2024). <em>Ethics-based auditing of AI systems: A systematic literature review.</em> Information & Management.
+        </p>
+
+        <p class="reference-item">
+            <strong>Meskini, S. & Hakim, A.</strong> (2024). <em>Patterns for Prompt Engineering with LLMs: A Systematic Literature Review.</em> IEEE COMPSAC 2024.
+        </p>
+        
+        <p class="reference-item">
+            <strong>Meskini, S. et al.</strong> (2025). <em>Prompt engineering for decision-making in the era of generative AI.</em> Procedia Computer Science.
+        </p>
+
+        <p class="reference-item">
+            <strong>GhostDrift Mathematical Institute.</strong> (2025). <em>Evidence Log 1 & 2 (Dialogue / Case Materials) for Ghost Drift.</em> Supplementary Material.
+        </p>
+    </section>
+
+    <!-- Glossary -->
+    <section>
+        <h2>Glossary</h2>
+        <dl>
+            <dt>Ghost Drift</dt>
+            <dd>A protocol-induced transition from non-committing outputs to boundary-committed outputs: a claim becomes actionable only when BP_commit exists and the response binds to BP_commit via Response_commit and an auditable ledger chain, preserving non-retroactive accountability under repudiation.</dd>
+
+            <dt>Commit / Commit ID</dt>
+            <dd>Commit(x) := SHA-256(Canon(x)), where Canon(x) is a deterministic UTF-8 canonical serialization (canonical JSON: lexicographic key ordering, no insignificant whitespace, arrays preserved, LF line endings). Used to bind BP/Response/RP to non-retroactive verification via the ledger chain.</dd>
+
+            <dt>Boundary Packet (BP)</dt>
+            <dd>A committed boundary specification BP whose BP_commit fixes: (i) scope constraints, (ii) assumptions, (iii) PASS/FAIL rule and checkset, and (iv) responsibility-trigger conditions. Without BP_commit, the protocol treats the output as non-actionable for non-retroactive accountability.</dd>
+
+            <dt>Non-retroactive evaluation</dt>
+            <dd>A protocol in which claims are actionable only when BP_commit and Response_commit exist and are linked by an append-only ledger chain; repudiation must be expressed as a committed RP (bounded or unbounded), preventing retroactive rewriting while preserving explicit responsibility under disagreement.</dd>
+
+            <dt>Rebuttal Packet (RPb) / Responsibility Residue</dt>
+            <dd>A structured repudiation artifact RP that is either (a) bounded: links BP_commit to BP_alt_commit and specifies adoption responsibility, or (b) unbounded: logged as "unbounded objection" (RP_unbounded_commit) that cannot invalidate the original decision artifact but fixes authorship and responsibility for the objection itself.</dd>
+
+            <dt>Accountability Boundary</dt>
+            <dd>A statement of scope, assumptions, and failure conditions that determines what the output can be held responsible for.</dd>
+
+            <dt>Inquiry Structure (QSI)</dt>
+            <dd>Operational score describing how explicitly a question declares objective, constraints, assumptions, checks, and accountability artifacts.</dd>
+
+            <dt>Accountability Traceability (ATS)</dt>
+            <dd>Operational score describing whether the response provides audit-ready structure: assumptions, boundaries, claim/support separation, checks, and failure conditions.</dd>
+        </dl>
+    </section>
+
+    <div class="back-link-container">
+        <a href="https://www.ghostdriftresearch.com/" class="back-button">Back to GhostDrift Mathematical Institute</a>
+    </div>
+
+    <footer style="margin-top: 4rem; text-align: center; font-size: 0.8rem; color: #777;">
+        <p>&copy; 2025 GhostDrift Mathematical Institute & Structural Cognition Lab. All Rights Reserved.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
