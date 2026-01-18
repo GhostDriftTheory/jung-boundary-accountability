@@ -381,7 +381,7 @@
 
         <div class="author-info">
             <p><strong>GhostDrift Mathematical Institute</strong><br>
-            June 2025 (Final Protocol Version)</p>
+            June 2025 (Conceptual Framework)</p>
         </div>
     </header>
 
@@ -389,7 +389,7 @@
     <section class="abstract-box">
         <div class="abstract-title">Abstract</div>
         <p class="abstract-text">
-            Jungian psychology has long warned that meaning, lacking a fixed container, dissolves into projection. This paper translates that warning into an institutional protocol. We argue that responsible technology requires decisions to remain accountable even under disagreement. We present a boundary-first protocol for preventing responsibility evaporation: (i) commit to an explicit Boundary Packet (scope, assumptions, checks, PASS/FAIL or responsibility triggers) via a non-retroactive commitment identifier (<span class="equation">BP_commit</span>), (ii) bind each decision artifact to that identifier, and (iii) force every rebuttal to either propose an attributable alternative boundary (thus inheriting responsibility) or be recorded explicitly as a boundary-free objection. Optional scores (QSI/ATS) may be computed, but enforcement relies on commit-and-evidence invariants, not on measurement.
+            Jungian psychology has long warned that meaning, lacking a fixed container, dissolves into projection. This paper translates that warning into a theoretical framework for institutional accountability. We argue that responsible technology requires decisions to remain accountable even under disagreement. We propose a boundary-first framework where: (i) an explicit boundary (scope, assumptions, checks) must be fixed before evaluation, (ii) decisions must be bound to this pre-fixed boundary, and (iii) disagreement must be structurally distinguished—rebuttals either propose an alternative boundary (inheriting responsibility) or remain as unbounded objections. This structure prevents the "evaporation" of responsibility into retroactive reinterpretation.
         </p>
     </section>
 
@@ -398,9 +398,9 @@
         <span class="toc-title">Table of Contents</span>
         <ol>
             <li>Jung as a Boundary Protocol: Why Meaning Needs a Commit</li>
-            <li>Operationalization: Fixing the Shadow of Interpretation (Commit & Ledger)</li>
+            <li>Operationalization: Fixing the Shadow of Interpretation</li>
             <li>Theoretical Model: Stopping the Projection of Responsibility</li>
-            <li>Computational Structure: Individuation via Boundary Packets</li>
+            <li>Computational Structure: Individuation via Boundary Fixation</li>
             <li>Social Implementation: From Persona to Non-Retroactive Log</li>
             <li>Case Analysis (Dialogue Log Analysis)</li>
             <li>Theoretical Framework and Design Recommendations</li>
@@ -426,14 +426,14 @@
             Jung’s concepts—persona, shadow, projection, individuation—are utilized not as narratives, but as structural descriptors of <strong>where agency hides, how interpretation drifts, and how accountability is evaded.</strong>
         </p>
         <p>
-            <em>Crucial Limitation:</em> We employ Jungian concepts here not as causal explanations of the mind nor as empirical psychological claims, but as <strong>engineering classifiers</strong> for structural failures in accountability. The "hardness" of this proposal relies entirely on the cryptographic Commit-and-Ledger protocol defined in Chapter 2, not on psychological theory. Jung provides the vocabulary for the problem (projection, shadow); the protocol provides the fix (commit, ledger).
+            <em>Crucial Limitation:</em> We employ Jungian concepts here not as causal explanations of the mind nor as empirical psychological claims, but as <strong>engineering classifiers</strong> for structural failures in accountability. The "hardness" of this proposal relies entirely on the principle of Non-Retroactive Fixation defined in Chapter 2, not on psychological theory. Jung provides the vocabulary for the problem (projection, shadow); the protocol provides the fix (commit, ledger).
         </p>
 
         <h3>1.2 Core Claim (Jungian Meaning Requires a Boundary to Become Binding)</h3>
         <p>
             Meaning cannot be held accountable if it can be retroactively reinterpreted without cost. Jung warned that unowned meaning returns as projection and rationalization—a drift mechanism.
             We revive Jung by applying a modern constraint to meaning: a committed boundary.
-            We define a Boundary Packet that fixes scope, assumptions, checks, and failure conditions. Once committed, disagreement does not dissolve responsibility. It can only:
+            We define a "Boundary" that fixes scope, assumptions, checks, and failure conditions. Once committed, disagreement does not dissolve responsibility. It can only:
             (1) propose an alternative committed boundary and inherit responsibility, or
             (2) remain an unbounded objection that is logged but cannot erase the original responsibility surface.
         </p>
@@ -576,25 +576,21 @@
             To avoid self-confirmation, the evaluation protocol mandates that responses are anonymized and randomized before scoring. This protocol can be executed by any third party using the included prompt sets and rubric, enabling replication across models and settings.
         </p>
 
-        <h3>2.8 Core Hardness: Commit-First Boundary (No Measurement Required)</h3>
+        <h3>2.8 Core Principle: Boundary Fixation</h3>
         <p>
-            The essential requirement is not measurement, but fixation. Scores (QSI/ATS) are optional; the protocol remains valid even when nothing is “measured,” as long as the boundary is committed and non-retroactive.
-            Define a Boundary Packet (BP) that states: scope, assumptions, checks, and PASS/FAIL (or a responsibility-trigger point). Fix it by a deterministic commitment identifier (<span class="equation">BP_commit</span>) and require every claim to reference <span class="equation">BP_commit</span>.
-        </p>
-        <p>
-            NOTE (governance primitive): QSI/ATS are diagnostic measures; enforcement does not rely on any score.
-            The hard boundary is the Non-Retroactive Commit Protocol: claims are actionable only when a committed boundary and an append-only evidence record exist.
+            The essential requirement is not measurement, but <strong>fixation</strong>. Scores (QSI/ATS) are optional diagnostic tools. The framework's core validity relies on the principle that a boundary must be committed before evaluation occurs.
+            The "Hard Boundary" is the operational requirement that any claim must reference a pre-existing scope, assumption set, and failure condition. Without this reference, the claim is treated as fluid and non-accountable.
         </p>
 
-        <h3>2.9 Core Hardness: Rebuttal Must Carry an Alternative Boundary</h3>
+        <h3>2.9 Core Principle: Responsibility in Disagreement</h3>
         <p>
-            To prevent “interpretation drift” (or in Jungian terms, shadow projection), every rebuttal must be submitted as a packet that either proposes an alternative boundary packet (thus taking responsibility for the alternative) or is recorded as an unbounded objection.
-            This guarantees that disagreement does not erase responsibility: it either produces a new committed boundary with an owner, or it becomes a logged refusal to specify where responsibility should attach.
+            To prevent “interpretation drift” (or in Jungian terms, shadow projection), the framework posits that disagreement cannot simply dissolve the original boundary. Instead, a rebuttal must either propose an alternative boundary (taking responsibility for it) or be treated as an objection without a locus of responsibility.
+            This ensures that responsibility always resides <em>somewhere</em>: either with the original boundary or with the explicit alternative.
         </p>
         
-        <h3>2.10 Rebuttal Packet (RP) Responsibility Rule</h3>
+        <h3>2.10 Principle of Attributable Rebuttal</h3>
         <p>
-            To operationalize accountability, a Rebuttal Packet (RP) must be attributable to a proposer and must either (a) carry an alternative committed boundary (thereby inheriting responsibility for that alternative) or (b) be recorded explicitly as a boundary-free objection.
+            Operationalizing accountability requires that objections be attributable. A system cannot be held accountable by "general doubt"; it can only be checked by specific counter-claims that carry their own verification conditions.
         </p>
     </section>
 
@@ -604,7 +600,7 @@
 
         <h3>3.1 From Implicit Assumptions to Responsibility-Gated Output</h3>
         <p>
-            Ghost Drift is a boundary-first accountability mechanism: the system responds in a responsibility-gated mode only when the input includes (or references) a committed boundary packet. When the boundary is absent, the correct response is not to “guess better,” but to demand boundary specification (scope, checks, PASS/FAIL or responsibility triggers) and to bind any later claims to a non-retroactive commit.
+            Ghost Drift is a boundary-first accountability mechanism: the system responds in a responsibility-gated mode only when the input includes (or references) a committed boundary. When the boundary is absent, the correct response is not to “guess better,” but to demand boundary specification (scope, checks, PASS/FAIL or responsibility triggers) and to bind any later claims to a non-retroactive commitment.
         </p>
 
         <h3>3.2 Hypothetical Model of Response Transformation</h3>
@@ -612,15 +608,14 @@
             Ghost Drift can be represented as a transition from a non-committing output to a boundary-committed output with respect to accountability.
         </p>
         <ul>
-            <li><strong>Ordinary output:</strong> r = f(x) where no Boundary Packet is committed, so no non-retroactive accountability can be asserted.</li>
-            <li><strong>Boundary-committed output:</strong> r* = f*(x, BP_commit) where the response references BP_commit and produces Response_commit plus an explicit checkset and responsibility-trigger conditions.</li>
+            <li><strong>Ordinary output:</strong> Output where no Boundary is committed, so no non-retroactive accountability can be asserted.</li>
+            <li><strong>Boundary-committed output:</strong> Output where the response references a fixed Boundary and produces an explicit checkset and responsibility-trigger conditions.</li>
         </ul>
         <p>
-            Drift activation is protocol-level and auditable (not an internal threshold):
-            Drift(x) holds iff a committed boundary reference exists, a committed response/decision artifact reference exists, and an append-only evidence record links them in time order.
+            Drift activation is a structural state: it holds when a fixed boundary reference exists, a decision artifact reference exists, and a traceable record links them in time order.
         </p>
         <p>
-            Under the Ghost Drift hypothesis, the shift is triggered when a Boundary Packet is demanded and committed and the response is forced to bind itself to that commitment with an auditable evidence trail; QSI/ATS may predict when this demand arises but are not required for enforcement.
+            Under the Ghost Drift hypothesis, the shift is triggered when a Boundary is demanded and committed and the response is forced to bind itself to that commitment with a traceable evidence trail.
         </p>
 
         <h3>3.3 Transformation in Response Stance</h3>
@@ -636,7 +631,7 @@
 
     <!-- Chapter 4 -->
     <section>
-        <h1>Chapter 4: Computational Structure: Individuation via Boundary Packets</h1>
+        <h1>Chapter 4: Computational Structure: Individuation via Boundary Fixation</h1>
 
         <h3>4.1 Difference Between "Refinement" and "Accountability Shift"</h3>
         <p>
@@ -676,7 +671,7 @@
         <ul>
             <li><strong>Boundary Declaration:</strong> "We evaluate under criteria X, Y, Z committed at time T."</li>
             <li><strong>Non-Retroactive Clause:</strong> "Criteria may not be rewritten after outcome is seen."</li>
-            <li><strong>Recursive Structure:</strong> The AI explicitly states what it assumed first, what new evidence was observed, and how the reasoning updates under the same committed boundary packet.</li>
+            <li><strong>Recursive Structure:</strong> The AI explicitly states what it assumed first, what new evidence was observed, and how the reasoning updates under the same committed boundary.</li>
         </ul>
     </section>
 
@@ -694,29 +689,25 @@
             Even in scientific contexts, the protocol provides a meta-layer: it does not replace empirical validation but prevents interpretive drift in how results are framed and justified.
         </p>
 
-        <h3>5.3 Non-Retroactive Commit Protocol (NRCP)</h3>
+        <h3>5.3 Concept of Non-Retroactive Fixation</h3>
         <p>
-            Define a <b>Boundary Packet (BP)</b> as a structured artifact containing: (i) scope, (ii) assumptions, (iii) checks, and (iv) PASS/FAIL or responsibility-trigger conditions.
-            Any claimed evaluation must reference <span class="equation">BP_commit</span>, and any later change to the boundary must create a new BP and thus a new commit.
+            The core requirement for social implementation is the ability to prove that criteria were fixed before the outcome was known. We conceptually define a <b>Boundary Artifact</b> as a container for scope, assumptions, and checks.
+            Any claimed evaluation must reference this artifact, and any later change to the boundary must be treated as a new claim, not an update to the old one.
         </p>
         <p>
-            The protocol requires a deterministic commitment identifier for BP and for each decision artifact, plus an append-only evidence record that links them in time order.
-            The concrete hash function, canonicalization rules, and record format are implementation details and are not specified here.
-        </p>
-
-        <h3>5.4 Rebuttal Responsibility Protocol (RRP): “Responsibility Residue”</h3>
-        <p>
-            The protocol classifies repudiation into two cases with different effects:
-            (a) <strong>bounded rebuttal (protocol-valid)</strong>: the repudiator provides an alternative boundary with its own PASS/FAIL rule and checkset, and signs it as an attributable proposal, stating who bears responsibility if the alternative is adopted.
-            Without an alternative committed boundary, repudiation cannot invalidate or void the original decision artifact.
-        </p>
-        <p>
-            (b) <strong>boundary-free objection (logged, non-invalidating)</strong>: the repudiator may object without proposing an alternative boundary. This objection is recorded explicitly as boundary-free; it cannot alter or void the original decision artifact, but it fixes authorship of the objection itself.
+            This requires a mechanism for identifying artifacts uniquely and proving their temporal precedence. While cryptographic hashes are a common technical solution, the conceptual requirement is simply <em>invariance over time</em>.
         </p>
 
-        <h3>5.5 Evidence Record (Minimal Implementation)</h3>
+        <h3>5.4 Handling Disagreement (The Responsibility Residue)</h3>
         <p>
-            Minimal implementation requirement: maintain an append-only evidence record that time-orders (i) boundary commitments, (ii) decision artifacts bound to those commitments, and (iii) rebuttals (bounded or boundary-free). The purpose is to make later reinterpretation visibly non-retroactive.
+            The framework suggests a structural classification for disagreement:
+            (a) <strong>Bounded Rebuttal (Accountable)</strong>: The critic provides an alternative boundary with its own verification rules. This transfers responsibility to the new boundary if adopted.
+            (b) <strong>Boundary-Free Objection (Non-Invalidating)</strong>: The critic objects without defining a new boundary. This serves as a "vote of no confidence" but cannot structurally invalidate the decision because it offers no alternative location for responsibility.
+        </p>
+
+        <h3>5.5 Traceability Concept</h3>
+        <p>
+            A minimal requirement for any responsible system is the maintenance of a temporal record that orders boundary definitions, decisions, and objections. The purpose is to make later reinterpretation visibly non-retroactive, preventing the "drift" of meaning.
         </p>
     </section>
 
@@ -752,7 +743,7 @@
 
         <h3>6.4 Reporting Rule: Methods Are Claimable; Numbers Require a Released Packet</h3>
         <p>
-            This paper claims a <i>protocol</i>, not an empirical superiority result. Therefore, we do not publish standalone numeric performance claims without also releasing the corresponding boundary packet, prompt set, and replay artifacts. The only claimable object in the absence of a released packet is the computation rule itself.
+            This paper claims a <i>framework</i>, not an empirical superiority result. Therefore, we do not publish standalone numeric performance claims without also releasing the corresponding boundary definitions, prompt set, and replay artifacts. The only claimable object in the absence of a released artifact is the computation rule itself.
         </p>
     </section>
 
@@ -768,7 +759,7 @@
         <h3>7.2 Implications for AI Design</h3>
         <ul>
             <li><strong>Accountability-Building Architecture:</strong> a boundary-first design that commits the evaluation surface and prevents post-hoc narrative drift.</li>
-            <li><strong>Boundary-Gated Framing:</strong> interpretation is allowed, but only inside an explicitly committed boundary packet.</li>
+            <li><strong>Boundary-Gated Framing:</strong> interpretation is allowed, but only inside an explicitly committed boundary.</li>
         </ul>
 
         <h3>7.3 Towards Structural Reliance</h3>
@@ -801,9 +792,9 @@
 
         <h3>8.2 Strategic Prompt Design for Crisis</h3>
         <ul>
-            <li><strong>Structural clarity (boundary binding):</strong> Explicitly require BP_commit/RP_commit generation or reference.</li>
-            <li><strong>Stake declaration (accountability binding):</strong> Include decision_owner, time_horizon, and harm_model as serialized fields.</li>
-            <li><strong>Evidence continuity (non-retroactivity support):</strong> Reference the latest evidence record head when available; if third-party non-retroactivity is required, demand an external witness anchor for that head.</li>
+            <li><strong>Structural clarity (boundary binding):</strong> Explicitly require boundary generation or reference.</li>
+            <li><strong>Stake declaration (accountability binding):</strong> Include clear ownership, time horizons, and defined risk models.</li>
+            <li><strong>Evidence continuity (non-retroactivity support):</strong> Reference the latest evidence record when available; if third-party non-retroactivity is required, demand an external witness.</li>
         </ul>
     </section>
 
@@ -812,7 +803,7 @@
         <h1>Conclusion: Reviving Jung Means Making Meaning Non-Retroactive</h1>
         <p>
             Jung is not revived by quoting symbols or celebrating introspection. He is revived when meaning becomes a responsibility-bearing act.
-            This paper presented a Jung-first accountability structure: commit a Boundary Packet, bind decision artifacts to that commit, and force every rebuttal to either (a) propose an alternative committed boundary and inherit responsibility, or (b) remain an unbounded objection.
+            This paper presented a Jung-first accountability structure: commit a Boundary, bind decision artifacts to that commit, and force every rebuttal to either (a) propose an alternative committed boundary and inherit responsibility, or (b) remain an unbounded objection.
         </p>
         <p>
             Under this structure, “interpretation” stops functioning as a projection screen. It becomes owned meaning.
@@ -838,19 +829,19 @@
         <h2>Glossary</h2>
         <dl>
             <dt>Ghost Drift</dt>
-            <dd>A protocol-induced transition from non-committing outputs to boundary-committed outputs: a claim becomes actionable only when a committed boundary reference exists and an append-only evidence record links the boundary to the decision artifact, preserving non-retroactive accountability under repudiation.</dd>
-            <dt>Commit / Commit ID</dt>
-            <dd>A deterministic commitment identifier derived from a canonical representation of an artifact (e.g., a boundary packet or a response). It enables later verification that the artifact was fixed before evaluation and was not retroactively rewritten.</dd>
+            <dd>A structural transition from non-committing outputs to boundary-committed outputs: a claim becomes actionable only when a committed boundary reference exists and is linked to the decision artifact, preserving non-retroactive accountability under repudiation.</dd>
+            <dt>Commitment / Fixation</dt>
+            <dd>The act of making an artifact (e.g., a boundary or a response) invariant over time. It enables later verification that the artifact was fixed before evaluation and was not retroactively rewritten.</dd>
             <dt>Boundary Packet (BP)</dt>
-            <dd>A committed boundary specification BP whose commitment identifier fixes: (i) scope constraints, (ii) assumptions, (iii) PASS/FAIL rule and checkset, and (iv) responsibility-trigger conditions. Without a committed boundary reference, the protocol treats the output as non-actionable for non-retroactive accountability.</dd>
+            <dd>A committed specification that fixes: (i) scope constraints, (ii) assumptions, (iii) verification rules, and (iv) responsibility triggers. Without a committed boundary, the output is treated as non-actionable.</dd>
             <dt>Inquiry Structure (QSI)</dt>
             <dd>Operational score describing how explicitly a question declares its structural bounds.</dd>
             <dt>Accountability Traceability (ATS)</dt>
             <dd>Operational score describing whether the response provides audit-ready structure.</dd>
             <dt>Non-retroactive evaluation</dt>
-            <dd>A protocol in which claims are actionable only when boundary commitments and decision artifacts are linked by an append-only evidence record; repudiation must be expressed as either a bounded rebuttal (with an alternative boundary) or a boundary-free objection (logged), preventing retroactive rewriting while preserving explicit responsibility under disagreement.</dd>
-            <dt>Rebuttal Packet (RPb) / Responsibility Residue</dt>
-            <dd>A repudiation artifact that is either (a) bounded: it carries an alternative committed boundary and states adoption responsibility, or (b) boundary-free: logged as an objection that cannot invalidate the original decision artifact but fixes authorship of the objection.</dd>
+            <dd>A concept in which claims are actionable only when boundary commitments and decision artifacts are linked by a temporal record; repudiation must be expressed as either a bounded rebuttal (with an alternative boundary) or a boundary-free objection (logged), preventing retroactive rewriting.</dd>
+            <dt>Responsibility Residue</dt>
+            <dd>The principle that objections must either carry an alternative committed boundary (inheriting responsibility) or exist as a boundary-free objection that cannot invalidate the original decision structure.</dd>
         </dl>
     </section>
 
