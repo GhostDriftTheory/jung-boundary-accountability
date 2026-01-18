@@ -48,3 +48,20 @@ GhostDrift Mathematical Institute & Structural Cognition Lab
 * **Focus:** Mathematical Modeling, AI Governance, Structural Application of Depth Psychology
 
 © 2025 GhostDrift Mathematical Institute. All Rights Reserved.
+
+**🛡️ License & Patent Notice**
+
+This document is published for research and scholarly discussion purposes only.
+
+No open-source license (including MIT, Apache, GPL, or similar) is granted.
+Commercial use, system implementation, product integration, consulting use,
+or application in AI, legal, governance, or decision-making systems is strictly prohibited
+without explicit prior written permission.
+
+The concepts of "Boundary Fixation", "Responsibility Residue",
+"structural application of depth psychology", and related commitment protocols
+may be covered by filed or pending patent applications.
+
+© 2025 GhostDrift Mathematical Institute.
+All Rights Reserved.
+
