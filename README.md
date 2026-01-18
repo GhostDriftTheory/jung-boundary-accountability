@@ -1,67 +1,56 @@
-# **The Boundary Line Project between Science and the Humanities (AI and Responsibility)**
+# The Boundary Line Project between Science and the Humanities (AI and Responsibility)
 
-# **理系と人文知の境界線プロジェクト（AIと責任）**
+# 理系と人文知の境界線プロジェクト（AIと責任）
 
-## **Overview**
+## Overview
 
-This project attempts to redefine and structure the blurred boundary between "meaning" and "responsibility" amidst the advancement of Generative AI, by fusing insights from the humanities (specifically Jungian analytical psychology) with an engineering approach (commitment protocols).
+This project explores how **meaning** can carry **responsibility** in the era of Generative AI.
+It frames “responsibility evaporation” under interpretive ambiguity (**Ghost Drift**) as a *structural defect*, and proposes **Boundary Fixation** as the core principle: meaning becomes accountable only when its evaluation surface is fixed **before** outcomes are known.
 
-Addressing the phenomenon where responsibility evaporates under the guise of "interpretive ambiguity" (**Ghost Drift**), this project proposes that **"Boundary Fixation"** is the sole means to embed responsibility within meaning.
+This repository publishes **conceptual frameworks** and **research artifacts** for scholarly discussion.
 
-## **Artifacts**
-
+## Artifacts
 ### [**Jung as a Boundary Protocol**](https://ghostdrifttheory.github.io/jung-boundary-accountability/)
+
+
+### Jung as a Boundary Protocol
 
 **— Non-Retroactive Accountability When Meaning Is Committed —**
 
-* **Online Version:** [View Full Protocol](https://ghostdrifttheory.github.io/jung-boundary-accountability/)  
-* **Filename:** ghost\_drift\_protocol.html  
-* **Format:** Standalone HTML (Academic Paper Style)  
-* **Status:** Conceptual Framework (June 2025\)
+* Online: https://ghostdrifttheory.github.io/jung-boundary-accountability/
+* File: `ghost_drift_protocol.html`
+* Status: Conceptual Framework (June 2025)
 
-#### **Purpose of the Document**
+**Purpose**
 
-A white paper that conceptually reinterprets Jungian concepts such as "Individuation" and "Shadow" away from the contexts of introspection or therapy, repurposing them as an **"engineering boundary protocol for fixing the locus of responsibility in AI systems."**
+A white paper that reinterprets Jungian concepts (e.g., individuation, shadow, projection) as *structural descriptors* for accountability failures, and proposes a boundary-first framework where disagreement cannot dissolve responsibility.
 
-#### **Core Thesis**
+**Core Thesis**
 
-"Jungian meaning becomes accountable only when it is committed to a boundary."
+> Jungian meaning becomes accountable only when it is committed to a boundary.
 
-## **Key Concepts**
+## Key Concepts (Conceptual)
 
-1. **Ghost Drift**  
-   * The phenomenon where the criteria forming the basis of a decision are rewritten retroactively after the result is known, causing the locus of responsibility to evaporate.  
-   * This project treats this as a "structural defect" and aims to prevent it through mathematical modeling and protocols.  
-2. **Boundary Fixation**  
-   * An engineering requirement to prevent interpretation from ending merely as "Projection."  
-   * By irreversibly fixing (Committing) the scope, assumptions, and verification rules (**Boundary Artifact**) prior to evaluation or output, post-hoc evasion of responsibility is prevented.  
-3. **Responsibility Residue**  
-   * A structural classification for Rebuttals.  
-   * By forcing a choice between "proposing an alternative boundary to inherit responsibility (**Bounded**)" or "being recorded as a boundary-free objection (**Boundary-free**)," the system prevents hollowing out caused by irresponsible criticism.
+* **Ghost Drift**: When evaluation criteria are retroactively rewritten after outcomes are observed, causing responsibility to evaporate.
+* **Boundary Fixation**: The principle that scope, assumptions, and checks must be fixed *before* evaluation; otherwise claims remain non-binding.
+* **Responsibility Residue**: Disagreement must be expressed in a form that preserves where responsibility sits; objections that do not specify an alternative locus remain recorded as such.
 
-## **Author / Research Institute**
+## Author / Research Institute
 
-GhostDrift Mathematical Institute & Structural Cognition Lab  
-(ゴーストドリフト数理研究所 & 構造認知ラボ)
+GhostDrift Mathematical Institute & Structural Cognition Lab
 
-* **Research Lead:** Manny  
-* **Focus:** Mathematical Modeling, AI Governance, Structural Application of Depth Psychology
+* Research Lead: Manny
+* Focus: Mathematical modeling, AI governance, and structural application of depth psychology
 
 © 2025 GhostDrift Mathematical Institute. All Rights Reserved.
 
-**🛡️ License & Patent Notice**
+## License & Patent Notice
 
-This document is published for research and scholarly discussion purposes only.
+This repository is published for research and scholarly discussion.
 
-No open-source license (including MIT, Apache, GPL, or similar) is granted.
-Commercial use, system implementation, product integration, consulting use,
-or application in AI, legal, governance, or decision-making systems is strictly prohibited
-without explicit prior written permission.
+* **No open-source license is granted** (MIT/Apache/GPL or otherwise).
+* No permission is granted for commercial use or implementation without explicit prior written permission.
+* Some concepts described here may be covered by filed or pending patent applications.
 
-The concepts of "Boundary Fixation", "Responsibility Residue",
-"structural application of depth psychology", and related commitment protocols
-may be covered by filed or pending patent applications.
-
-© 2025 GhostDrift Mathematical Institute.
-All Rights Reserved.
+For permission requests: contact the research lead.
 
